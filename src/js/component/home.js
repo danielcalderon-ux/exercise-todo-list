@@ -28,17 +28,17 @@ export function Home() {
 	};
 
 	return (
-		<div className="container">
-			<h1 className="text-center">TODOS</h1>
+		<div className="container col-6">
+			<h1 className="text-center bg-secondary text-white">TODOS</h1>
 			<div className="row">
 				<div className="col-12">
 					<ul className="list-group">
 						<form onSubmit={agregarTarea}>
-							<li className="list-group-item">
+							<li className="list-group-item ">
 								<input
 									type="text"
 									className="form-control mb-2"
-									placeholder="Enter task"
+									placeholder="agregar tarea"
 									onChange={e => setTarea(e.target.value)}
 									value={tarea}
 								/>
@@ -46,7 +46,9 @@ export function Home() {
 						</form>
 						{arrayTareas.map(item => (
 							<li className="list-group-item" key={item.id}>
-								<span className="blockquote-footer">
+								<span
+									className="blockquote-footer"
+									onClick={() => Delete(item.id)}>
 									{item.nombreTarea}
 								</span>
 								<button
